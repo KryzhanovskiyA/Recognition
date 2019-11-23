@@ -1,6 +1,7 @@
 package com.company.MNIST;
 
 public class Uglovaya implements NeighborSercher {
+
     private int skal(MnistMatrix a, MnistMatrix b){
         int skal = 0;
         for (int r = 0; r < a.getNumberOfRows(); r++) {//перебор по стоке матрицы 28*28
@@ -31,8 +32,7 @@ public class Uglovaya implements NeighborSercher {
         double[] distances = new double[data.length];
         double modTestPhoto = modVect(testPhoto);
         for (int i = 0; i < data.length; i++) {
-            double tmp = skal(data[i],testPhoto)/(modVect(data[i])*modTestPhoto);
-            distances[i] = tmp;
+            distances[i] = Math.acos(skal(data[i],testPhoto)/(modVect(data[i])*modTestPhoto));
         }
     return distances;
     }
