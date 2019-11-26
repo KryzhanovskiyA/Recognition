@@ -17,8 +17,12 @@ public class Recognizer {
 
 
     public int analysis(){
-        double[] kOfNeighbors = metric.neighborSearch(this.samples,this.testPhoto);
-        int[] indexOfNearestNeighbors = nearestNeighbors(kOfNeighbors,20);
+        double[] distances = new double[samples.length];
+        for (int i = 0; i < samples.length; i++) {
+            distances[i] = metric.neighborSearch(samples[i],this.testPhoto);
+        }
+        //double[] kOfNeighbors = metric.neighborSearch(this.samples,this.testPhoto);
+        int[] indexOfNearestNeighbors = nearestNeighbors(distances,20);
         int resultLabel = resultLabel(this.samples,indexOfNearestNeighbors);
         System.out.println("На картинке: " + resultLabel);
         return resultLabel;

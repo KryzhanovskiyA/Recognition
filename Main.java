@@ -11,9 +11,9 @@ public class Main {
             MnistMatrix[] mnistMatrix = new MnistReader().readData("C:\\Users\\User\\IdeaProjects\\Test\\src\\com\\company\\MNIST\\train-images.idx3-ubyte", "C:\\Users\\User\\IdeaProjects\\Test\\src\\com\\company\\MNIST\\train-labels.idx1-ubyte");
             MnistMatrix[] testMatrix = new MnistReader().readData("C:\\Users\\User\\IdeaProjects\\Test\\src\\com\\company\\MNIST\\t10k-images.idx3-ubyte", "C:\\Users\\User\\IdeaProjects\\Test\\src\\com\\company\\MNIST\\t10k-labels.idx1-ubyte");
 
-            Recognizer recognizer = new Recognizer(testMatrix[0],mnistMatrix,new Uglovaya());
+            Recognizer recognizer = new Recognizer(testMatrix[0],mnistMatrix,new Minkovskiy());
             int ok = 0,ng = 0;
-            for(int i = 0; i<testMatrix.length;i+=20){
+            for(int i = 0; i<testMatrix.length;i+=200){
                 recognizer.setTestPhoto(testMatrix[i]);
                 if(testMatrix[i].getLabel() == recognizer.analysis()){ok++;}
                 else{ng++;}
