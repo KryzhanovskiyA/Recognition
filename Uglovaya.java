@@ -29,11 +29,7 @@ public class Uglovaya implements NeighborSercher {
     }
     @Override
     public double neighborSearch(MnistMatrix data, MnistMatrix testPhoto) {
-       // double[] distances = new double[data.length];
-       // double modTestPhoto = modVect(testPhoto);
-        //for (int i = 0; i < data.length; i++) {
+
             return Math.acos(skal(data,testPhoto)/(modVect(data)*modVect(testPhoto)));
-        //}
-    //return distances;
     }
 }

@@ -1,7 +1,5 @@
 package com.company.MNIST;
 
-import java.util.Arrays;
-
 public class Recognizer {
     private MnistMatrix testPhoto;
     private MnistMatrix[] samples;
@@ -27,9 +25,6 @@ public class Recognizer {
         System.out.println("На картинке: " + resultLabel);
         return resultLabel;
     }
-
-
-
 
     private int[] nearestNeighbors(double[] dist, int k){//ok
         int[] indOfNearests = new int[k];
